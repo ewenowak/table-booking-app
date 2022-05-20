@@ -49,7 +49,7 @@ const Table = () => {
     } else {
       setPeopleAmount(amount);
     }
-  }
+  };
   
   const requirementMaxPeopleAmount = (amount) => {
     if (amount >= 10){
@@ -60,44 +60,44 @@ const Table = () => {
     } else {
       setMaxPeopleAmount(amount);
     }
-  }
+  };
 
   return (
       <>
       <h1>Table {tableData.id} </h1>
       <Form onSubmit={handleSubmit}>
-      <Form.Group as={Row} className="mb-3 w-50">
-        <Form.Label column sm={2}>
-          <b>Status:</b>
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Select value="status" onChange={e => requirementSetStatus(e.target.value)}>
-            <option>{status}</option>
-            <option value="reserved">Reserved</option>
-            <option value="busy">Busy</option>
-            <option value="free">Free</option>
-            <option value="cleaning">Cleaning</option>
-          </Form.Select>
-        </Col>
-        <Form.Label column sm={2} className="mt-2">
-          <b>People:</b>
-        </Form.Label>
-        <Col sm={10} className="mt-2 d-flex">
-          <Form.Control style={{maxWidth: '50px'}} className="text-center my-1 mx-1" value={peopleAmount} onChange={e => requirementPeopleAmount(e.target.value)} />
-          <p className="mx-1 my-1" style={{fontSize: '25px'}}>/</p>
-          <Form.Control style={{maxWidth: '50px'}} className="text-center my-1 mx-1" value={maxPeopleAmount} onChange={e => requirementMaxPeopleAmount(e.target.value)}/>
-        </Col> 
-      { status === 'busy' &&
-      <>
-      <Form.Label column sm={2} className="mt-2">
-          <b>Bill:</b>
-      </Form.Label>
-      <Col sm={10} className="mt-2 d-flex">
-          <p className="mx-1 my-1" style={{fontSize: '25px'}}>$</p>
-          <Form.Control style={{maxWidth: '50px'}} className="text-center my-1 mx-1" value={bill} onChange={e => setBill(e.target.value)}/>
-        </Col> 
-        </>
-      }
+        <Form.Group as={Row} className="mb-3 w-50">
+          <Form.Label column sm={2}>
+            <b>Status:</b>
+          </Form.Label>
+          <Col sm={10}>
+            <Form.Select value="status" onChange={e => requirementSetStatus(e.target.value)}>
+              <option>{status}</option>
+              <option value="reserved">Reserved</option>
+              <option value="busy">Busy</option>
+              <option value="free">Free</option>
+              <option value="cleaning">Cleaning</option>
+            </Form.Select>
+          </Col>
+          <Form.Label column sm={2} className="mt-2">
+            <b>People:</b>
+          </Form.Label>
+          <Col sm={10} className="mt-2 d-flex">
+            <Form.Control style={{maxWidth: '50px'}} className="text-center my-1 mx-1" value={peopleAmount} onChange={e => requirementPeopleAmount(e.target.value)} />
+            <p className="mx-1 my-1" style={{fontSize: '25px'}}>/</p>
+            <Form.Control style={{maxWidth: '50px'}} className="text-center my-1 mx-1" value={maxPeopleAmount} onChange={e => requirementMaxPeopleAmount(e.target.value)}/>
+          </Col> 
+          { status === 'busy' &&
+          <>
+          <Form.Label column sm={2} className="mt-2">
+              <b>Bill:</b>
+          </Form.Label>
+          <Col sm={10} className="mt-2 d-flex">
+              <p className="mx-1 my-1" style={{fontSize: '25px'}}>$</p>
+              <Form.Control style={{maxWidth: '50px'}} className="text-center my-1 mx-1" value={bill} onChange={e => setBill(e.target.value)}/>
+            </Col> 
+            </>
+          }
         </Form.Group>
         <Button variant="primary" type="submit">Update</Button>
       </Form>

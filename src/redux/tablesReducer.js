@@ -1,8 +1,9 @@
 import { API_URL } from "../config";
 
 //selectors
-export const getAllTables = state => state.tables;
+export const getAllTables = ({tables}) => tables;
 export const getTableById = ({tables}, id) => tables.find(table => table.id === id);
+
 
 // actions name
 const createActionName = actionName => `app/tables/${actionName}`;

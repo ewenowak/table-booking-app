@@ -11,6 +11,7 @@ const AllTables = () => {
             <ListGroup.Item key={table.id} className="d-flex justify-content-between align-items-start">
                 <div className="d-flex align-items-center">
                     <h3>Table: {table.id}</h3>
+                    <span className='mx-1'></span>
                     <span><b>Status:</b> {table.status}</span>
                 </div>
                 <Button as={Link} to={"/table/" + table.id}>Show more</Button>
